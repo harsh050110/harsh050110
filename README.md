@@ -20,4 +20,6 @@ HTML | CSS | JavaScript | React | Tailwind CSS | Python | Git | Figma | SQL
 
 
 <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&pause=1000&color=0A4BFF&center=true&vCenter=true&width=440&height=50&lines=Frontend+Developer;React+Lover;Currently+Learning+DSA" />
+<img src="https://media.giphy.com/media/13HgwGsXF0aiGY/giphy.gif" width="400"/>
+
 
