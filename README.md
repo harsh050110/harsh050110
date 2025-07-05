@@ -1,16 +1,18 @@
-## Hi there 👋
+# Hi 👋, I'm Harsh Kumar
 
-<!--
-**harsh050110/harsh050110** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+🚀 Frontend Developer | B.Tech in CSE | Passionate about building beautiful UIs
 
-Here are some ideas to get you started:
+## 💻 Tech Stack
+HTML | CSS | JavaScript | React | Tailwind CSS | Python | Git | Figma | SQL
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## 🌟 Projects
+- 🔗 [Amazon Clone](https://github.com/harsh050110/amazon-clone) – React-based e-commerce front-end
+- 🔗 [Portfolio Website](https://github.com/harsh050110/portfolio) – Personal site with clean UI
+
+## 📈 Currently Learning
+- Data Structures & Algorithms (LeetCode 100+ problems)
+- API integration
+- TypeScript
+
+## 📫 Connect With Me
+[LinkedIn](https://www.linkedin.com/in/harsh-kumar-984) | [GitHub](https://github.com/harsh050110)
