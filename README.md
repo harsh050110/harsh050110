@@ -33,4 +33,6 @@
 
 <!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
 <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&pause=1000&color=0A4BFF&center=true&vCenter=true&width=440&height=50&lines=Frontend+Developer;React+Lover;Currently+Learning+DSA" />
+<img src="./languages-rainbow.svg" width="400">
+
 
