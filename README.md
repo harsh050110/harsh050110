@@ -63,7 +63,9 @@ Hands-on learner who builds daily
 🐟 My GitHub Aquarium
 
 <p align="center">
- <img src="koi/koi.gif" width="256" alt="My Git Koi" />
+  <img src="koi/koi.gif" width="180" alt="My White Koi" />
+  <img src="koi/koi2.gif" width="180" alt="My Black Koi" />
+  <img src="koi/koi3.gif" width="180" alt="My Golden Koi" />
 </p>
 
 <p align="center">
