@@ -24,48 +24,57 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Generate White Koi
-        uses: yalongwastaken/git-koi@v1
-        with:
-          login: harsh050110
-          body: white
-          output-dir: koi/white
+      # Install Rust
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
 
-      - name: Generate Black and Gold Koi
-        shell: bash
+      # Install git-koi only once
+      - name: Install git-koi
+        run: cargo install git-koi --locked
+
+      # Collect GitHub activity only once
+      - name: Collect GitHub Activity
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git-koi collect harsh050110 \
+            --output "$RUNNER_TEMP/koi-snapshot.json"
+
+      # Generate all six koi using the same snapshot
+      - name: Generate White Koi
+        run: |
+          git-koi render "$RUNNER_TEMP/koi-snapshot.json" \
+            --output-dir koi/white --body white
+
+      - name: Generate Black Koi
         run: |
           git-koi render "$RUNNER_TEMP/koi-snapshot.json" \
             --output-dir koi/black --body black
 
+      - name: Generate Gold Koi
+        run: |
           git-koi render "$RUNNER_TEMP/koi-snapshot.json" \
             --output-dir koi/gold --body gold
 
       - name: Generate Asagi Koi
-        uses: yalongwastaken/git-koi@v1
-        with:
-          login: harsh050110
-          body: asagi
-          output-dir: koi/asagi
+        run: |
+          git-koi render "$RUNNER_TEMP/koi-snapshot.json" \
+            --output-dir koi/asagi --body asagi
 
       - name: Generate Tea Koi
-        uses: yalongwastaken/git-koi@v1
-        with:
-          login: harsh050110
-          body: tea
-          output-dir: koi/tea
+        run: |
+          git-koi render "$RUNNER_TEMP/koi-snapshot.json" \
+            --output-dir koi/tea --body tea
 
       - name: Generate Platinum Koi
-        uses: yalongwastaken/git-koi@v1
-        with:
-          login: harsh050110
-          body: platinum
-          output-dir: koi/platinum
+        run: |
+          git-koi render "$RUNNER_TEMP/koi-snapshot.json" \
+            --output-dir koi/platinum --body platinum
 
-      - name: Arrange aquarium
+      # Arrange aquarium
+      - name: Arrange Aquarium
         shell: bash
         run: |
-          mkdir -p koi
-
           cp koi/white/koi.gif koi/koi.gif
           cp koi/black/koi.gif koi/koi2.gif
           cp koi/gold/koi.gif koi/koi3.gif
@@ -74,10 +83,16 @@ jobs:
           cp koi/platinum/koi.gif koi/koi6.gif
 
           for file in koi/koi{,2,3,4,5,6}.gif; do
-            test -s "$file" || exit 1
+            test -s "$file" || {
+              echo "Missing or empty GIF: $file"
+              exit 1
+            }
           done
 
-      - name: Commit aquarium
+          echo "All six koi generated successfully!"
+
+      # Commit aquarium
+      - name: Commit Aquarium
         shell: bash
         run: |
           git add koi/
@@ -88,7 +103,8 @@ jobs:
           fi
 
           git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.email \
+            "41898282+github-actions[bot]@users.noreply.github.com"
 
           git commit -m "Update GitHub Koi Aquarium"
           git push
