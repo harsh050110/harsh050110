@@ -24,7 +24,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # This collects GitHub activity and installs git-koi
       - name: Generate White Koi
         uses: yalongwastaken/git-koi@v1
         with:
@@ -32,7 +31,6 @@ jobs:
           body: white
           output-dir: koi/white
 
-      # Reuse the same activity snapshot
       - name: Generate Black and Gold Koi
         shell: bash
         run: |
@@ -42,9 +40,6 @@ jobs:
           git-koi render "$RUNNER_TEMP/koi-snapshot.json" \
             --output-dir koi/gold --body gold
 
-
-            
-      
       - name: Generate Asagi Koi
         uses: yalongwastaken/git-koi@v1
         with:
@@ -66,9 +61,6 @@ jobs:
           body: platinum
           output-dir: koi/platinum
 
-
-
-      # Put all three GIFs in your existing locations
       - name: Arrange aquarium
         shell: bash
         run: |
@@ -81,18 +73,14 @@ jobs:
           cp koi/tea/koi.gif koi/koi5.gif
           cp koi/platinum/koi.gif koi/koi6.gif
 
-          test -s koi/koi.gif
-          test -s koi/koi2.gif
-          test -s koi/koi3.gif
-          test -s koi/koi4.gif
-          test -s koi/koi5.gif
-          test -s koi/koi6.gif
+          for file in koi/koi{,2,3,4,5,6}.gif; do
+            test -s "$file" || exit 1
+          done
 
-      # Commit all fish
       - name: Commit aquarium
         shell: bash
         run: |
-          git add koi/koi.gif koi/koi2.gif koi/koi3.gif
+          git add koi/
 
           if git diff --cached --quiet; then
             echo "Aquarium unchanged"
