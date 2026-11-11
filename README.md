@@ -63,12 +63,12 @@ Hands-on learner who builds daily
 🐟 My GitHub Aquarium
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/harsh050110/harsh050110/main/koi/koi.gif" width="180" alt="White Koi" />
-  &nbsp;&nbsp;
-  <img src="https://raw.githubusercontent.com/harsh050110/harsh050110/main/koi/koi2.gif" width="180" alt="Black Koi" />
-  &nbsp;&nbsp;
-  <img src="https://raw.githubusercontent.com/harsh050110/harsh050110/main/koi/koi3.gif" width="180" alt="Gold Koi" />
+  <img src="koi/koi.gif" width="180" alt="White Koi" />
+  <img src="koi/koi2.gif" width="180" alt="Black Koi" />
+  <img src="koi/koi3.gif" width="180" alt="Gold Koi" />
 </p>
+
+
 
 <p align="center">
  <i>Every commit adds life to my aquarium. Keep coding! 💻</i>
