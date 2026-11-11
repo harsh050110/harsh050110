@@ -68,6 +68,12 @@ Hands-on learner who builds daily
   <img src="koi/koi3.gif" width="180" alt="Gold Koi" />
 </p>
 
+<p align="center">
+  <img src="koi/koi4.gif" width="150" alt="Asagi Koi" />
+  <img src="koi/koi5.gif" width="150" alt="Tea Koi" />
+  <img src="koi/koi6.gif" width="150" alt="Platinum Koi" />
+</p>
+
 
 
 <p align="center">
