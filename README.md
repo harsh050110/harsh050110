@@ -51,13 +51,14 @@ Hands-on learner who builds daily
 📊 GitHub Analytics
 
 <p align="center">
- <img src="https://github-readme-stats.vercel.app/api?username=harsh050110&theme=tokyonight&show_icons=true" height="165" />
- <img src="https://nirzak-streak-stats.vercel.app/?user=harsh050110&theme=tokyonight" height="165" />
+  <img src="https://github-stats-extended.vercel.app/api?username=harsh050110&theme=tokyonight&show_icons=true" height="165" alt="GitHub Stats" />
+  <img src="https://streak-stats.demolab.com/?user=harsh050110&theme=tokyonight" height="165" alt="GitHub Streak" />
 </p>
 
 <p align="center">
- <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=harsh050110&layout=compact&theme=tokyonight" />
+  <img src="https://github-stats-extended.vercel.app/api/top-langs/?username=harsh050110&layout=compact&theme=tokyonight" alt="Top Languages" />
 </p>
+
 
 🐟 My GitHub Aquarium
 
