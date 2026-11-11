@@ -21,34 +21,36 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
-      # White Koi
-      - uses: yalongwastaken/git-koi@v1
+      # Collect activity and generate the first fish
+      - name: Generate White Koi
+        uses: yalongwastaken/git-koi@v1
         with:
           body: white
           output-dir: koi/white
 
-      # Black Koi
-      - uses: yalongwastaken/git-koi@v1
-        with:
-          body: black
-          output-dir: koi/black
+      # Reuse the collected activity for the other fish
+      - name: Generate Black and Gold Koi
+        shell: bash
+        run: |
+          git-koi render "$RUNNER_TEMP/koi-snapshot.json" \
+            --output-dir koi/black --body black
 
-      # Gold Koi
-      - uses: yalongwastaken/git-koi@v1
-        with:
-          body: gold
-          output-dir: koi/gold
+          git-koi render "$RUNNER_TEMP/koi-snapshot.json" \
+            --output-dir koi/gold --body gold
 
-      - name: Commit aquarium if changed
+      # Commit all three fish
+      - name: Commit aquarium
+        shell: bash
         run: |
           git add koi/
+
           if git diff --cached --quiet; then
-            echo "No changes"
+            echo "Aquarium unchanged"
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git commit --quiet -m "koi: update aquarium"
-          git push --quiet
+          git commit -m "Update GitHub aquarium"
+          git push
