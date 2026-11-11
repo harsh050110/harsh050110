@@ -42,6 +42,25 @@ jobs:
           git-koi render "$RUNNER_TEMP/koi-snapshot.json" \
             --output-dir koi/gold --body gold
 
+
+            
+      # Generate additional fish using the same activity snapshot
+      - name: Generate Asagi Koi
+        run: |
+          git-koi render "$RUNNER_TEMP/koi-snapshot.json" \
+            --output-dir koi/asagi --body asagi
+
+      - name: Generate Tea Koi
+        run: |
+          git-koi render "$RUNNER_TEMP/koi-snapshot.json" \
+            --output-dir koi/tea --body tea
+
+      - name: Generate Platinum Koi
+        run: |
+          git-koi render "$RUNNER_TEMP/koi-snapshot.json" \
+            --output-dir koi/platinum --body platinum
+
+
       # Put all three GIFs in your existing locations
       - name: Arrange aquarium
         shell: bash
@@ -51,10 +70,16 @@ jobs:
           cp koi/white/koi.gif koi/koi.gif
           cp koi/black/koi.gif koi/koi2.gif
           cp koi/gold/koi.gif koi/koi3.gif
+          cp koi/asagi/koi.gif koi/koi4.gif
+          cp koi/tea/koi.gif koi/koi5.gif
+          cp koi/platinum/koi.gif koi/koi6.gif
 
           test -s koi/koi.gif
           test -s koi/koi2.gif
           test -s koi/koi3.gif
+          test -s koi/koi4.gif
+          test -s koi/koi5.gif
+          test -s koi/koi6.gif
 
       # Commit all fish
       - name: Commit aquarium
