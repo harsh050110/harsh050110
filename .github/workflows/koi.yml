@@ -1,4 +1,5 @@
-name: Koi
+
+name: Koi Aquarium
 
 on:
   schedule:
@@ -16,22 +17,38 @@ concurrency: koi
 jobs:
   koi:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v7
 
+      # White Koi
       - uses: yalongwastaken/git-koi@v1
         with:
           body: white
-          output-dir: koi
+          output-dir: koi/white
 
-      - name: Commit the koi if it changed
+      # Black Koi
+      - uses: yalongwastaken/git-koi@v1
+        with:
+          body: black
+          output-dir: koi/black
+
+      # Gold Koi
+      - uses: yalongwastaken/git-koi@v1
+        with:
+          body: gold
+          output-dir: koi/gold
+
+      - name: Commit aquarium if changed
         run: |
-          git add koi/koi.gif
+          git add koi/
           if git diff --cached --quiet; then
             echo "No changes"
             exit 0
           fi
+
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit --quiet -m "koi: draw the day's koi"
+
+          git commit --quiet -m "koi: update aquarium"
           git push --quiet
