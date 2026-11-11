@@ -44,21 +44,28 @@ jobs:
 
 
             
-      # Generate additional fish using the same activity snapshot
+      
       - name: Generate Asagi Koi
-        run: |
-          git-koi render "$RUNNER_TEMP/koi-snapshot.json" \
-            --output-dir koi/asagi --body asagi
+        uses: yalongwastaken/git-koi@v1
+        with:
+          login: harsh050110
+          body: asagi
+          output-dir: koi/asagi
 
       - name: Generate Tea Koi
-        run: |
-          git-koi render "$RUNNER_TEMP/koi-snapshot.json" \
-            --output-dir koi/tea --body tea
+        uses: yalongwastaken/git-koi@v1
+        with:
+          login: harsh050110
+          body: tea
+          output-dir: koi/tea
 
       - name: Generate Platinum Koi
-        run: |
-          git-koi render "$RUNNER_TEMP/koi-snapshot.json" \
-            --output-dir koi/platinum --body platinum
+        uses: yalongwastaken/git-koi@v1
+        with:
+          login: harsh050110
+          body: platinum
+          output-dir: koi/platinum
+
 
 
       # Put all three GIFs in your existing locations
