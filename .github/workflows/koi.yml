@@ -12,45 +12,55 @@ on:
 permissions:
   contents: write
 
-concurrency: koi
+concurrency:
+  group: koi
+  cancel-in-progress: false
 
 jobs:
   koi:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v7
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      # Collect activity and generate the first fish
       - name: Generate White Koi
         uses: yalongwastaken/git-koi@v1
         with:
           body: white
-          output-dir: koi/white
+          output-dir: .koi-build/white
 
-      # Reuse the collected activity for the other fish
-      - name: Generate Black and Gold Koi
-        shell: bash
+      - name: Generate Black Koi
+        uses: yalongwastaken/git-koi@v1
+        with:
+          body: black
+          output-dir: .koi-build/black
+
+      - name: Generate Gold Koi
+        uses: yalongwastaken/git-koi@v1
+        with:
+          body: gold
+          output-dir: .koi-build/gold
+
+      - name: Arrange aquarium
         run: |
-          git-koi render "$RUNNER_TEMP/koi-snapshot.json" \
-            --output-dir koi/black --body black
+          mkdir -p koi
 
-          git-koi render "$RUNNER_TEMP/koi-snapshot.json" \
-            --output-dir koi/gold --body gold
+          cp .koi-build/white/koi.gif koi/koi.gif
+          cp .koi-build/black/koi.gif koi/koi2.gif
+          cp .koi-build/gold/koi.gif koi/koi3.gif
 
-      # Commit all three fish
       - name: Commit aquarium
-        shell: bash
         run: |
-          git add koi/
+          git add koi/koi.gif koi/koi2.gif koi/koi3.gif
 
           if git diff --cached --quiet; then
-            echo "Aquarium unchanged"
+            echo "No fish changes"
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git commit -m "Update GitHub aquarium"
+          git commit -m "Update GitHub Koi Aquarium"
           git push
