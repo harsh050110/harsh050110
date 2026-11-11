@@ -69,11 +69,10 @@ Hands-on learner who builds daily
 </p>
 
 <p align="center">
-  <img src="koi/koi4.gif" width="150" alt="Asagi Koi" />
-  <img src="koi/koi5.gif" width="150" alt="Tea Koi" />
-  <img src="koi/koi6.gif" width="150" alt="Platinum Koi" />
+  <img src="https://raw.githubusercontent.com/harsh050110/harsh050110/main/koi/koi4.gif" width="150" alt="Asagi Koi" />
+  <img src="https://raw.githubusercontent.com/harsh050110/harsh050110/main/koi/koi5.gif" width="150" alt="Tea Koi" />
+  <img src="https://raw.githubusercontent.com/harsh050110/harsh050110/main/koi/koi6.gif" width="150" alt="Platinum Koi" />
 </p>
-
 
 
 <p align="center">
